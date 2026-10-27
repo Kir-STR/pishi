@@ -22,6 +22,7 @@ docs/superpowers/                спеки и планы
 | Платформа | Что ставится |
 |---|---|
 | Claude Code | плагин целиком |
+| Claudian (Obsidian) | плагин из Claude Code (`~/.claude/plugins`) |
 | claude.ai | скилл (zip из `build.ps1`) |
 | ChatGPT веб/мобильный | скилл (тот же zip) |
 | Codex CLI | скилл из плагина |
