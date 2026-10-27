@@ -41,7 +41,7 @@ docs/superpowers/                спеки и планы
 - После правки скилла платформы обновляются по-разному:
   - Claude Code с локальным marketplace читает репо напрямую — новая сессия или `/reload-plugins`;
   - Codex копирует плагин при установке — повторить `codex plugin add pishi@pishi`
-    (для GitHub-marketplace перед этим `codex plugin marketplace upgrade pishi` — не проверено);
+    (для GitHub-marketplace перед этим `codex plugin marketplace upgrade pishi`);
   - claude.ai и ChatGPT веб — запустить `build.ps1` и перезалить zip;
   - ChatGPT десктоп — способ обновления не проверен.
 
