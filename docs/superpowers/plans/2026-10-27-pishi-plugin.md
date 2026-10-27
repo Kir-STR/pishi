@@ -403,7 +403,7 @@ git commit -m "docs: add README, project CLAUDE.md, spec and plan"
 Run: `cd "/c/Users/T590/!all/code/my/tools/pishi" && rm docs/idea.md docs/pishi-sokrashchai.skill && ls docs`
 Expected: `sample.txt`, `superpowers`.
 
-В «Структуре» CLAUDE.md строку `docs/ …` заменить на `docs/superpowers/   спеки и планы`.
+В «Структуре» CLAUDE.md удалить строку `docs/idea.md, docs/*.skill …` (строка `docs/superpowers/` уже есть).
 
 - [ ] **Step 3: Коммит (по слову оператора)**
 

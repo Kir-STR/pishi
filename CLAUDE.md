@@ -13,7 +13,8 @@ agents/editor.md                 субагент-редактор, только
 commands/redakt.md               /pishi:redakt <путь>, только Claude Code
 build.ps1                        zip скилла → dist/pishi-sokrashchai.zip (dist/ в .gitignore)
 README.md                        описание репо и установка для людей
-docs/                            исходные материалы советника, не источник правды
+docs/superpowers/                спеки и планы
+docs/idea.md, docs/*.skill       исходные материалы советника (локально, не в git), не источник правды
 ```
 
 ## Где работает
