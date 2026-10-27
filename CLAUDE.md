@@ -8,11 +8,12 @@
 ```
 .claude-plugin/plugin.json       манифест плагина
 .claude-plugin/marketplace.json  marketplace из одного плагина
-skills/pishi-sokrashchai/        единственная копия правил: SKILL.md, references/, scripts/scan.py
+skills/pishi/        единственная копия правил: SKILL.md, references/, scripts/scan.py
 agents/editor.md                 субагент-редактор, только Claude Code
 commands/redakt.md               /pishi:redakt <путь>, только Claude Code
-build.ps1                        zip скилла → dist/pishi-sokrashchai.zip (dist/ в .gitignore)
+build.ps1                        zip скилла → dist/pishi.zip (dist/ в .gitignore)
 README.md                        описание репо и установка для людей
+LICENSE                          MIT
 docs/superpowers/                спеки и планы
 ```
 
@@ -33,7 +34,7 @@ docs/superpowers/                спеки и планы
 
 - Зависимость в одну сторону: агент и команда ссылаются на скилл. SKILL.md и references/ не упоминают
   агента, команду и конкретные платформы — тот же текст читают Claude, ChatGPT и Codex.
-- Правила редактуры — только в `skills/pishi-sokrashchai/`. Агент и команда их не пересказывают, а отсылают к SKILL.md.
+- Правила редактуры — только в `skills/pishi/`. Агент и команда их не пересказывают, а отсылают к SKILL.md.
 - Frontmatter SKILL.md — только `name` и `description` (формат Agent Skills, общий для платформ; description ≤ 1024 символов).
 - `scan.py` — только стандартная библиотека Python 3; stdin и stdout — UTF-8 независимо от кодировки консоли
   (Windows PowerShell 5.1 передаёт pipe не в UTF-8 — там передавать путь к файлу).
@@ -49,9 +50,9 @@ docs/superpowers/                спеки и планы
 
 Тестовый текст — `docs/sample.txt` (локально, не в git).
 
-- `python skills/pishi-sokrashchai/scripts/scan.py <файл> --json` и то же через pipe: одинаковый JSON, код 0.
+- `python skills/pishi/scripts/scan.py <файл> --json` и то же через pipe: одинаковый JSON, код 0.
 - `claude plugin validate .`: passed; предупреждения только про `version` и `CLAUDE.md`.
-- `pwsh ./build.ps1`: в zip одна папка `pishi-sokrashchai/` с SKILL.md внутри, имена через `/`.
+- `pwsh ./build.ps1`: в zip одна папка `pishi/` с SKILL.md внутри, имена через `/`.
 - Claude Code: `/plugin marketplace add ./pishi` из родительского каталога → установка → `/pishi:redakt <тестовый файл>`.
 - Codex: `codex plugin marketplace add <путь к репо>` → `codex plugin add pishi@pishi` →
-  в `codex debug prompt-input` есть `pishi:pishi-sokrashchai`.
+  в `codex debug prompt-input` есть `pishi:pishi`.

@@ -6,7 +6,7 @@
 
 ## Как устроено
 
-Правила живут в одной папке — `skills/pishi-sokrashchai/`. Все платформы читают её.
+Правила живут в одной папке — `skills/pishi/`. Все платформы читают её.
 
 - `SKILL.md` — основа: три вопроса к каждому фрагменту (польза, честность, забота), четыре режима
   (редактура, разбор с комментариями, написание с нуля, сокращение до объёма), порядок правки сверху вниз
@@ -63,10 +63,11 @@ codex plugin add pishi@pishi
 
 **claude.ai и ChatGPT (веб, мобильный)**
 
-1. Собрать архив: `pwsh ./build.ps1` (нужен PowerShell 7) → `dist/pishi-sokrashchai.zip`.
-2. claude.ai: Customize → Skills → загрузить zip.
+1. Собрать архив: `pwsh ./build.ps1` (нужен PowerShell 7) → `dist/pishi.zip`.
+2. claude.ai: Customize → Skills → загрузить zip. Скиллам нужна настройка Settings → Capabilities →
+   «Code execution and file creation»; обычно она включена по умолчанию.
 3. ChatGPT: Skills → New skill → Upload from your computer → zip. Если раздела Skills нет (зависит от тарифа),
-   можно загрузить файлы из `skills/pishi-sokrashchai/` в Project — этот путь не проверен.
+   можно загрузить файлы из `skills/pishi/` в Project — этот путь не проверен.
 
 **ChatGPT десктоп — не проверено.** По [документации OpenAI](https://developers.openai.com/plugins/build/plugins)
 локальные marketplace появляются в Plugins Directory в режимах Work и Codex: добавить marketplace так же, как для Codex CLI,
@@ -79,7 +80,7 @@ codex plugin add pishi@pishi
 - **Claude Code:** `/pishi:redakt <путь к файлу>` (файл в UTF-8). Агент-редактор разбирает файл и предлагает правки
   в формате «фрагмент → проблема → замена», не применяя их. Можно и просто попросить отредактировать текст — скилл подхватится сам.
 - **Остальные платформы:** попросите отредактировать, сократить или разобрать текст; скилл подхватывается по описанию.
-- **Сканер отдельно:** `python skills/pishi-sokrashchai/scripts/scan.py file.txt [--json]`. На вход — UTF-8;
+- **Сканер отдельно:** `python skills/pishi/scripts/scan.py file.txt [--json]`. На вход — UTF-8;
   в Windows PowerShell 5.1 передавайте путь к файлу, а не pipe.
 
 ## Обновление после правки скилла
@@ -94,4 +95,7 @@ codex plugin add pishi@pishi
 - **claude.ai и ChatGPT веб** — `pwsh ./build.ps1` и перезалить zip.
 
 Установка и обновление из GitHub проверены на чистых настройках Claude Code и Codex CLI.
-Пока репо приватное, установка из GitHub работает только у тех, у кого есть к нему доступ.
+
+---
+
+Автор: [Kirill Bogdanov](https://github.com/Kir-STR). Лицензия: [MIT](LICENSE).
