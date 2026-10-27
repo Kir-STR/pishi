@@ -167,13 +167,13 @@ def print_report(r):
 
 def main():
     sys.stdout.reconfigure(encoding="utf-8")
-    sys.stdin.reconfigure(encoding="utf-8")
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
     as_json = "--json" in sys.argv
     if args:
         with open(args[0], encoding="utf-8") as f:
             text = f.read()
     else:
+        sys.stdin.reconfigure(encoding="utf-8")
         text = sys.stdin.read()
     result = scan(text)
     if as_json:

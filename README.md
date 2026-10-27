@@ -38,8 +38,8 @@
 |---|---|---|
 | Claude Code | плагин: скилл, агент, команда | проверено |
 | Codex CLI | скилл из плагина | проверено |
-| claude.ai | скилл (zip) | ручная загрузка |
-| ChatGPT веб и мобильный | скилл (zip) | ручная загрузка |
+| claude.ai | скилл (загрузка zip) | не проверено |
+| ChatGPT веб и мобильный | скилл (загрузка zip) | не проверено |
 | ChatGPT десктоп | скилл из плагина | не проверено |
 
 **Claude Code**
@@ -66,7 +66,7 @@ codex plugin add pishi@pishi
 1. Собрать архив: `pwsh ./build.ps1` (нужен PowerShell 7) → `dist/pishi-sokrashchai.zip`.
 2. claude.ai: Customize → Skills → загрузить zip.
 3. ChatGPT: Skills → New skill → Upload from your computer → zip. Если раздела Skills нет (зависит от тарифа),
-   загрузите файлы из `skills/pishi-sokrashchai/` в Project.
+   можно загрузить файлы из `skills/pishi-sokrashchai/` в Project — этот путь не проверен.
 
 **ChatGPT десктоп — не проверено.** По [документации OpenAI](https://developers.openai.com/plugins/build/plugins)
 локальные marketplace появляются в Plugins Directory в режимах Work и Codex: добавить marketplace так же, как для Codex CLI,
@@ -76,7 +76,7 @@ codex plugin add pishi@pishi
 
 ## Использование
 
-- **Claude Code:** `/pishi:redakt <путь к файлу>`. Агент-редактор разбирает файл и предлагает правки
+- **Claude Code:** `/pishi:redakt <путь к файлу>` (файл в UTF-8). Агент-редактор разбирает файл и предлагает правки
   в формате «фрагмент → проблема → замена», не применяя их. Можно и просто попросить отредактировать текст — скилл подхватится сам.
 - **Остальные платформы:** попросите отредактировать, сократить или разобрать текст; скилл подхватывается по описанию.
 - **Сканер отдельно:** `python skills/pishi-sokrashchai/scripts/scan.py file.txt [--json]`. На вход — UTF-8;

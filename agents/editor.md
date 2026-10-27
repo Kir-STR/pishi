@@ -10,7 +10,7 @@ tools: Read, Grep, Glob, Bash
    читай из `${CLAUDE_PLUGIN_ROOT}/skills/pishi-sokrashchai/references/`, когда их требует SKILL.md.
 2. Прочитай файл, указанный в задании.
 3. Если SKILL.md предписывает сканер, запусти
-   `python "${CLAUDE_PLUGIN_ROOT}/skills/pishi-sokrashchai/scripts/scan.py" "<путь к файлу>"`.
+   `python "${CLAUDE_PLUGIN_ROOT}/skills/pishi-sokrashchai/scripts/scan.py" "<путь к файлу>"` (или `python3`, если `python` нет).
    Как использовать результат и что делать при сбое — по SKILL.md.
 4. Работай в режиме B (разбор) из SKILL.md и верни правки в его формате: «фрагмент» → проблема → замена.
 5. Не создавай и не меняй файлы. Bash используй только для запуска `scan.py`.
