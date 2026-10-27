@@ -25,7 +25,7 @@ docs/superpowers/                спеки и планы
 | claude.ai | скилл (zip из `build.ps1`) |
 | ChatGPT веб/мобильный | скилл (тот же zip) |
 | Codex CLI | скилл из плагина |
-| ChatGPT десктоп (не проверено) | скилл из плагина |
+| ChatGPT десктоп | скилл из плагина |
 
 Установка — в README.md. Codex читает `.claude-plugin/`, отдельный манифест не нужен.
 Агент и команда есть только в Claude Code. Для других платформ обёрток не пишем: они читают SKILL.md напрямую.
@@ -39,6 +39,8 @@ docs/superpowers/                спеки и планы
 - `scan.py` — только стандартная библиотека Python 3; stdin и stdout — UTF-8 независимо от кодировки консоли
   (Windows PowerShell 5.1 передаёт pipe не в UTF-8 — там передавать путь к файлу).
 - Не держать копию скилла в `~/.claude/skills/` или `~/.codex/skills/` — платформа увидит два одинаковых скилла.
+  Скилл, загруженный в claude.ai, Claude Code подтягивает как `anthropic-skills:pishi`; отключается
+  `"skillOverrides": {"pishi": "off"}` в `~/.claude/settings.json` (скилл плагина не затрагивается).
 - После правки скилла платформы обновляются по-разному:
   - Claude Code с локальным marketplace читает репо напрямую — новая сессия или `/reload-plugins`;
   - Codex копирует плагин при установке — повторить `codex plugin add pishi@pishi`

@@ -38,9 +38,9 @@
 |---|---|---|
 | Claude Code | плагин: скилл, агент, команда | проверено |
 | Codex CLI | скилл из плагина | проверено |
-| claude.ai | скилл (загрузка zip) | не проверено |
-| ChatGPT веб и мобильный | скилл (загрузка zip) | не проверено |
-| ChatGPT десктоп | скилл из плагина | не проверено |
+| claude.ai | скилл (загрузка zip) | проверено |
+| ChatGPT веб и мобильный | скилл (загрузка zip) | проверено в веб |
+| ChatGPT десктоп | скилл из плагина | проверено |
 
 **Claude Code**
 
@@ -69,11 +69,19 @@ codex plugin add pishi@pishi
 3. ChatGPT: Skills → New skill → Upload from your computer → zip. Если раздела Skills нет (зависит от тарифа),
    можно загрузить файлы из `skills/pishi/` в Project — этот путь не проверен.
 
-**ChatGPT десктоп — не проверено.** По [документации OpenAI](https://developers.openai.com/plugins/build/plugins)
-локальные marketplace появляются в Plugins Directory в режимах Work и Codex: добавить marketplace так же, как для Codex CLI,
-перезапустить приложение и установить `pishi` из Plugins Directory.
+**ChatGPT десктоп.** Marketplace появляется в Plugins Directory в режимах Work и Codex
+([документация OpenAI](https://developers.openai.com/plugins/build/plugins)): добавьте marketplace так же, как для Codex CLI,
+перезапустите приложение и установите `pishi` из Plugins Directory.
 
 Не держите копию скилла в `~/.claude/skills/` или `~/.codex/skills/` рядом с плагином — платформа увидит два одинаковых скилла.
+
+**Скилл загружен в claude.ai и плагин стоит в Claude Code.** Claude Code подтягивает скиллы из аккаунта claude.ai
+(`anthropic-skills:pishi`) и видит две копии. Копию из claude.ai отключите в `~/.claude/settings.json` —
+скилл плагина это не затрагивает:
+
+```json
+"skillOverrides": { "pishi": "off" }
+```
 
 ## Использование
 
