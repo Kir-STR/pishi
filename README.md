@@ -88,7 +88,7 @@ codex plugin add pishi@pishi
 скилл плагина это не затрагивает:
 
 ```json
-"skillOverrides": { "pishi": "off" }
+"skillOverrides": { "anthropic-skills:pishi": "off" }
 ```
 
 ## Использование

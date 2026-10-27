@@ -41,7 +41,8 @@ docs/superpowers/                спеки и планы
   (Windows PowerShell 5.1 передаёт pipe не в UTF-8 — там передавать путь к файлу).
 - Не держать копию скилла в `~/.claude/skills/` или `~/.codex/skills/` — платформа увидит два одинаковых скилла.
   Скилл, загруженный в claude.ai, Claude Code подтягивает как `anthropic-skills:pishi`; отключается
-  `"skillOverrides": {"pishi": "off"}` в `~/.claude/settings.json` (скилл плагина не затрагивается).
+  `"skillOverrides": {"anthropic-skills:pishi": "off"}` в `~/.claude/settings.json` — ключ с полным именем:
+  короткий `"pishi"` совпадает с именем скилла плагина и копию из claude.ai не отключает (проверено).
 - После правки скилла платформы обновляются по-разному:
   - Claude Code с локальным marketplace читает репо напрямую — новая сессия или `/reload-plugins`;
   - Codex копирует плагин при установке — повторить `codex plugin add pishi@pishi`
