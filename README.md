@@ -5,6 +5,8 @@
 `[нужен факт: …]`. Упрощает синтаксис и выстраивает структуру вокруг пользы читателя.
 Работает в Claude Code, Claudian (Obsidian), claude.ai, ChatGPT и Codex.
 
+Сайт: [kir-str.github.io/pishi](https://kir-str.github.io/pishi/)
+
 **Пример:**
 
 - «Стоит отметить, что доставка бесплатная» → «Доставка бесплатная».
