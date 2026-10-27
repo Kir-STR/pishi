@@ -45,8 +45,11 @@ docs/superpowers/                спеки и планы
   - Claude Code с локальным marketplace читает репо напрямую — новая сессия или `/reload-plugins`;
   - Codex копирует плагин при установке — повторить `codex plugin add pishi@pishi`
     (для GitHub-marketplace перед этим `codex plugin marketplace upgrade pishi`);
-  - claude.ai и ChatGPT веб — запустить `build.ps1` и перезалить zip;
+  - claude.ai и ChatGPT — выпустить релиз (ниже) и перезалить zip;
   - ChatGPT десктоп — способ обновления не проверен.
+- Готовый zip раздаётся через GitHub Releases, не через git: README ссылается на
+  `releases/latest/download/pishi.zip`. Релиз — по слову пользователя, после push в `main`:
+  `pwsh ./build.ps1`, затем `gh release create vГГГГ.ММ.ДД dist/pishi.zip --target <sha>`.
 
 ## Проверка
 

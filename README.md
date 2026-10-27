@@ -39,7 +39,7 @@
 | Claude Code | плагин: скилл, агент, команда | проверено |
 | Codex CLI | скилл из плагина | проверено |
 | claude.ai | скилл (загрузка zip) | проверено |
-| ChatGPT веб и мобильный | скилл (загрузка zip) | проверено в веб |
+| ChatGPT веб и мобильный | скилл (загрузка zip) | проверено |
 | ChatGPT десктоп | скилл из плагина | проверено |
 
 **Claude Code**
@@ -63,7 +63,8 @@ codex plugin add pishi@pishi
 
 **claude.ai и ChatGPT (веб, мобильный)**
 
-1. Собрать архив: `pwsh ./build.ps1` (нужен PowerShell 7) → `dist/pishi.zip`.
+1. Скачать [pishi.zip](https://github.com/Kir-STR/pishi/releases/latest/download/pishi.zip) из последнего релиза.
+   Или собрать самому: `pwsh ./build.ps1` (нужен PowerShell 7) → `dist/pishi.zip`.
 2. claude.ai: Customize → Skills → загрузить zip. Скиллам нужна настройка Settings → Capabilities →
    «Code execution and file creation»; обычно она включена по умолчанию.
 3. ChatGPT: Skills → New skill → Upload from your computer → zip. Если раздела Skills нет (зависит от тарифа),
@@ -100,7 +101,8 @@ codex plugin add pishi@pishi
 - **Codex CLI** копирует плагин при установке: повторите `codex plugin add pishi@pishi`;
   для marketplace из GitHub перед этим — `codex plugin marketplace upgrade pishi`.
 - **ChatGPT десктоп** — способ обновления не проверен.
-- **claude.ai и ChatGPT веб** — `pwsh ./build.ps1` и перезалить zip.
+- **claude.ai и ChatGPT** — скачать новый zip из [последнего релиза](https://github.com/Kir-STR/pishi/releases/latest)
+  и перезалить: удалить старый скилл, загрузить новый.
 
 Установка и обновление из GitHub проверены на чистых настройках Claude Code и Codex CLI.
 
