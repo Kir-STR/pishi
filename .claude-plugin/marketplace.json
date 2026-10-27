@@ -1,0 +1,15 @@
+{
+  "name": "pishi",
+  "description": "Плагин pishi: редактура текстов по книге «Пиши, сокращай»",
+  "owner": {
+    "name": "Kirill Bogdanov",
+    "email": "kirill.bogdanov@strela.digital"
+  },
+  "plugins": [
+    {
+      "name": "pishi",
+      "source": "./",
+      "description": "Редактура текстов по книге «Пиши, сокращай»: скилл, агент-редактор и команда /pishi:redakt"
+    }
+  ]
+}
