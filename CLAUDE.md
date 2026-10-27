@@ -14,7 +14,6 @@ commands/redakt.md               /pishi:redakt <путь>, только Claude C
 build.ps1                        zip скилла → dist/pishi-sokrashchai.zip (dist/ в .gitignore)
 README.md                        описание репо и установка для людей
 docs/superpowers/                спеки и планы
-docs/idea.md, docs/*.skill       исходные материалы советника (локально, не в git), не источник правды
 ```
 
 ## Где работает
