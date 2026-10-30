@@ -8,5 +8,8 @@
   },
   "homepage": "https://kir-str.github.io/pishi/",
   "repository": "https://github.com/Kir-STR/pishi",
-  "license": "MIT"
+  "documentationUrl": "https://github.com/Kir-STR/pishi#readme",
+  "supportUrl": "https://github.com/Kir-STR/pishi/issues",
+  "license": "MIT",
+  "keywords": ["writing", "editing", "copywriting", "russian", "редактура", "инфостиль"]
 }
