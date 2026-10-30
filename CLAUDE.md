@@ -8,7 +8,6 @@
 ```
 .claude-plugin/plugin.json       манифест плагина
 .claude-plugin/marketplace.json  marketplace из одного плагина
-.claude-plugin/icon.png          иконка листинга в каталоге плагинов Anthropic
 skills/pishi/        единственная копия правил: SKILL.md, references/, scripts/scan.py
 agents/editor.md                 субагент-редактор, только Claude Code
 commands/redakt.md               /pishi:redakt <путь>, только Claude Code
@@ -55,8 +54,10 @@ docs/superpowers/                спеки и планы
   `pwsh ./build.ps1`, затем `gh release create vГГГГ.ММ.ДД dist/pishi.zip --target <sha>`.
 - Каталог плагинов Anthropic (claude.ai, Cowork, Claude Code) берёт версии из подвижного тега `stable`,
   а не из `main`. Выпуск в каталог — тоже по слову пользователя: `git tag -f stable <sha>`, `git push -f origin stable`.
-  Подаёт пользователь из личного аккаунта claude.ai (Pro). Иконку `.claude-plugin/icon.png` портал берёт
-  один раз, при первом сохранении; позже её не сменить.
+  Подаёт пользователь из личного аккаунта claude.ai (Pro). Иконку листинга (PNG в `.claude-plugin/`) портал
+  берёт один раз, при первом сохранении; позже её не сменить.
+- Пути к картинкам плагина не писать в `коде` и блоках кода ни в одном файле репо: каталог видит в этом
+  возможный запуск картинки как кода и задерживает каждую версию на ручную проверку (UNREAD_ASSET_REFERENCED).
 
 ## Проверка
 
