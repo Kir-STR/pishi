@@ -39,6 +39,7 @@ docs/superpowers/                спеки и планы
 - Frontmatter SKILL.md — только `name` и `description` (формат Agent Skills, общий для платформ; description ≤ 1024 символов).
 - `scan.py` — только стандартная библиотека Python 3; stdin и stdout — UTF-8 независимо от кодировки консоли
   (Windows PowerShell 5.1 передаёт pipe не в UTF-8 — там передавать путь к файлу).
+  Скилл и агент обязаны работать без `scan.py`: в версии для каталога его нет (ниже).
 - Не держать копию скилла в `~/.claude/skills/` или `~/.codex/skills/` — платформа увидит два одинаковых скилла.
   Скилл, загруженный в claude.ai, Claude Code подтягивает как `anthropic-skills:pishi`; отключается
   `"skillOverrides": {"anthropic-skills:pishi": "off"}` в `~/.claude/settings.json` — ключ с полным именем:
@@ -53,7 +54,11 @@ docs/superpowers/                спеки и планы
   `releases/latest/download/pishi.zip`. Релиз — по слову пользователя, после push в `main`:
   `pwsh ./build.ps1`, затем `gh release create vГГГГ.ММ.ДД dist/pishi.zip --target <sha>`.
 - Каталог плагинов Anthropic (claude.ai, Cowork, Claude Code) берёт версии из подвижного тега `stable`,
-  а не из `main`. Выпуск в каталог — тоже по слову пользователя: `git tag -f stable <sha>`, `git push -f origin stable`.
+  а не из `main`. От неверифицированных организаций каталог принимает только Markdown, текст, JSON, YAML
+  и картинки, поэтому `stable` ставится на ветку `anthropic-catalog` — это `main` без `scan.py` и `build.ps1`.
+  Выпуск в каталог — тоже по слову пользователя: `git switch anthropic-catalog`, `git merge main` (конфликт
+  по удалённым скриптам решать `git rm`), `git tag -f stable anthropic-catalog`, `git push origin anthropic-catalog`,
+  `git push -f origin stable`, `git switch main`.
   Подаёт пользователь из личного аккаунта claude.ai (Pro). Иконку листинга (PNG в `.claude-plugin/`) портал
   берёт один раз, при первом сохранении; позже её не сменить.
 - Пути к картинкам плагина не писать в `коде` и блоках кода ни в одном файле репо: каталог видит в этом
@@ -66,6 +71,8 @@ docs/superpowers/                спеки и планы
 - `python skills/pishi/scripts/scan.py <файл> --json` и то же через pipe: одинаковый JSON, код 0.
 - `claude plugin validate .`: passed; предупреждения только про `version` и `CLAUDE.md`.
 - `pwsh ./build.ps1`: в zip одна папка `pishi/` с SKILL.md внутри, имена через `/`.
+- Ветка `anthropic-catalog`: `git ls-tree -r --name-only anthropic-catalog` без `.py` и `.ps1`;
+  `claude plugin validate .` на ней — passed.
 - Claude Code: `/plugin marketplace add ./pishi` из родительского каталога → установка → `/pishi:redakt <тестовый файл>`.
 - Codex: `codex plugin marketplace add <путь к репо>` → `codex plugin add pishi@pishi` →
   в `codex debug prompt-input` есть `pishi:pishi`.
