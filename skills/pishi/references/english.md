@@ -1,6 +1,6 @@
 # Адаптация для английских текстов
 
-Книга написана для русского языка, но три вопроса (польза, честность, забота) и порядок редактуры сверху вниз переносятся без изменений. Ниже — английские аналоги категорий стоп-слов. Это адаптация, а не содержание книги.
+Опора из SKILL.md (задача решает, пять правок, статус утверждения, без вымысла) и порядок редактуры сверху вниз переносятся без изменений. Ниже — английские аналоги категорий стоп-слов. Это адаптация, а не содержание книг Ильяхова и Сарычевой.
 
 ## Аналоги категорий
 
@@ -13,7 +13,7 @@
 | Канцелярит / номинализации | make a decision, conduct an analysis, provide assistance, in order to, with regard to, due to the fact that | decide, analyze, help, to, about, because |
 | Неопределённость | various, a number of, certain, several, etc. | назвать конкретно |
 | Время | currently, at this point in time, going forward, in the near future | удалить или дать дату |
-| Модальность | can help, may allow, aims to, strives to, is designed to | утверждать прямо |
+| Модальность | can help, may allow, aims to, strives to, is designed to | утверждать прямо, если есть основание; оговорку сохранить |
 | Хеджи | somewhat, kind of, sort of, arguably, perhaps (без причины) | удалить, если нет реальной неопределённости |
 
 ## Синтаксис
