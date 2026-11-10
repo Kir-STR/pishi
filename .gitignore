@@ -1,4 +1,6 @@
 dist/
 .claude/settings.local.json
+.claude/retro-*.md
+.claude/ideas_4_rules.md
 __pycache__/
 docs/sample.txt
