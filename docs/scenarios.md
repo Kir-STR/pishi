@@ -7,6 +7,35 @@
 для обеих версий. Ответы старой версии сохраняются до правок скилла. Ответы сравниваются по критериям,
 версии показываются без подписей.
 
+Скрипты прогона лежат в `stand/`, ответы — в `stand/runs/<имя прогона>/` (вне git). Команды — из корня репо,
+PowerShell:
+
+```powershell
+# Claude Code, версия из репо: все сценарии или только названные (3A, 3B, 7…)
+python stand/run_scenarios.py docs/scenarios.md stand/runs/<имя> sonnet [номера]
+
+# сценарии 10–11 — без командной строки; после них: Remove-Item Env:EXTRA_DISALLOWED
+$env:EXTRA_DISALLOWED = 'Bash PowerShell'
+
+# версия из коммита: распаковать и подменить ею плагин из репо; после: Remove-Item Env:EXTRA_CLAUDE_ARGS
+$old = Join-Path $env:TEMP 'pishi-<sha>'
+New-Item -ItemType Directory $old
+git archive -o "$old.tar" <sha>
+tar -xf "$old.tar" -C $old
+$env:EXTRA_CLAUDE_ARGS = ConvertTo-Json -Compress @('--plugin-dir', $old, '--settings', '{"enabledPlugins":{"pishi@pishi":false}}')
+
+# GPT через Codex: текст SKILL.md уходит в запросе, справочники недоступны
+python stand/run_codex.py docs/scenarios.md skills/pishi stand/runs/<имя> <номера>
+
+# перестановки абзацев: код 1, если порядок нарушен
+python stand/check_order.py docs/scenarios.md stand/runs/<имя> [ещё каталоги]
+```
+
+Каждый запрос идёт в пустом каталоге во временной папке системы: изнутри репо прогон подхватил бы `CLAUDE.md`
+проекта. В `<номер>.md` — ответ, модель и прочитанные справочники. Какая версия отвечала, видно в `<номер>.jsonl`:
+у плагина `pishi` путь — репо или каталог из `--plugin-dir`. `check_order.py` — подсказка, а не судья:
+перестановку, названную в ответе, он тоже отметит.
+
 ## 1. Коммерческое предложение с водой
 
 **Запрос:** Отредактируй коммерческое предложение.

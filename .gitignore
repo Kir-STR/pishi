@@ -4,3 +4,4 @@ dist/
 .claude/ideas_4_rules.md
 __pycache__/
 docs/sample.txt
+stand/runs/

@@ -14,6 +14,7 @@ agents/editor.md                 субагент-редактор, только
 commands/redakt.md               /pishi:redakt <путь>, только Claude Code
 commands/feedback.md             /pishi:feedback <что не так>, только Claude Code
 build.ps1                        zip скилла → dist/pishi.zip (dist/ в .gitignore)
+stand/                           скрипты прогона сценариев; ответы — в stand/runs/ (в .gitignore)
 README.md                        описание репо и установка для людей
 LICENSE                          MIT
 docs/superpowers/                спеки и планы
@@ -59,9 +60,10 @@ docs/scenarios.md                сценарии для сравнения ве
   `pwsh ./build.ps1`, затем `gh release create vГГГГ.ММ.ДД dist/pishi.zip --target <sha>`.
 - Каталог плагинов Anthropic (claude.ai, Cowork, Claude Code) берёт версии из подвижного тега `stable`,
   а не из `main`. От неверифицированных организаций каталог принимает только Markdown, текст, JSON, YAML
-  и картинки, поэтому `stable` ставится на ветку `anthropic-catalog` — это `main` без `scan.py` и `build.ps1`.
-  Выпуск в каталог — тоже по слову пользователя: `git switch anthropic-catalog`, `git merge main` (конфликт
-  по удалённым скриптам решать `git rm`), `git tag -f stable anthropic-catalog`, `git push origin anthropic-catalog`,
+  и картинки, поэтому `stable` ставится на ветку `anthropic-catalog` — это `main` без скриптов: `scan.py`, `build.ps1`, `stand/`.
+  Выпуск в каталог — тоже по слову пользователя: `git switch anthropic-catalog`, `git merge main` (скрипты,
+  пришедшие из `main`, убирать `git rm`: новые файлы приходят без конфликта), проверка ветки из раздела
+  «Проверка» — до тега; `git tag -f stable anthropic-catalog`, `git push origin anthropic-catalog`,
   `git push -f origin stable`, `git switch main`.
   Подаёт пользователь из личного аккаунта claude.ai (Pro). Иконку листинга (PNG в `.claude-plugin/`) портал
   берёт один раз, при первом сохранении; позже её не сменить.
@@ -74,8 +76,8 @@ docs/scenarios.md                сценарии для сравнения ве
 
 Тестовый текст — `docs/sample.txt` (локально, не в git).
 
-- Правка правил скилла: до неё прогнать `docs/scenarios.md` на текущей версии и сохранить ответы вне git,
-  после — на новой; сравнить по критериям сценариев. Claude Code читает плагин из репо на лету, поэтому
+- Правка правил скилла: до неё прогнать `docs/scenarios.md` на текущей версии и сохранить ответы вне git
+  (`stand/runs/`; команды — в начале `docs/scenarios.md`), после — на новой; сравнить по критериям сценариев. Claude Code читает плагин из репо на лету, поэтому
   базовую линию снимать до первой правки.
 - Новое правило в скилл — только под сценарий из `docs/scenarios.md`, который текущая версия проваливает.
   Сценарий, критерий провала и число прогонов записать до запуска.
