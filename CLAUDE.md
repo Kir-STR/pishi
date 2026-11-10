@@ -12,6 +12,7 @@ claude.ai, ChatGPT и Codex.
 skills/pishi/        единственная копия правил: SKILL.md, references/, scripts/scan.py
 agents/editor.md                 субагент-редактор, только Claude Code
 commands/redakt.md               /pishi:redakt <путь>, только Claude Code
+commands/feedback.md             /pishi:feedback <что не так>, только Claude Code
 build.ps1                        zip скилла → dist/pishi.zip (dist/ в .gitignore)
 README.md                        описание репо и установка для людей
 LICENSE                          MIT
